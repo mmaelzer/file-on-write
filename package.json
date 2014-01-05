@@ -1,11 +1,18 @@
 {
   "name": "file-on-write",
-  "version": "0.1.1",
-  "description": "a nodejs stream implementation that creates a file on every write",
+  "version": "0.2.0",
+  "description": "a stream implementation that creates a file on every write",
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "stream",
+    "streams",
+    "writer",
+    "file",
+    "filewriter"
+  ],
   "repository": "https://github.com/mmaelzer/file-on-write",
   "author": "Mike Maelzer <mmaelzer@gmail.com>",
   "license": "BSD"
