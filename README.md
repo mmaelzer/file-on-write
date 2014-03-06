@@ -29,23 +29,23 @@ var writer = new FileOnWrite({
 The path to write files to.
   
 ### ext {String}
-* default `''`
+* default `''`  
 The file extension for the written files.
   
 ### filename {Function(chunk)}
-* default `Date.now()`
+* default `Date.now()`  
 A function used to generate files. The data piped into the `file-on-write` stream will be provided as the paramater to the `filename` function.
   
 ### sync {Boolean}
-* default `false`
+* default `false`  
 Write files synchronously.
   
 ### context {Object}
-* default `undefined`
+* default `undefined`  
 The context to call `filename()` and `transform()` with.
   
 ### transform {Function(chunk)}
-* default - return chunk
+* default - return chunk  
 Provide a transform method on the data passed into the `file-on-write` stream. Useful when only wanting to save a subset of the provided data.
   
   
