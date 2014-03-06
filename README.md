@@ -17,7 +17,7 @@ var FileOnWrite = require("file-on-write");
 var writer = new FileOnWrite({
   path: './images',
   ext: '.jpg',
-  filename: function(data) { return date.time; }
+  filename: function(data) { return data.time; }
 });
 ```
   
