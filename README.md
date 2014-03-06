@@ -34,7 +34,7 @@ The file extension for the written files.
   
 ### filename {Function(chunk)}
 * default `Date.now()`  
-A function used to generate files. The data piped into the `file-on-write` stream will be provided as the paramater to the `filename` function.
+A function used to generate filenames. The data piped into the `file-on-write` stream will be provided as the paramater to the `filename` function.
   
 ### sync {Boolean}
 * default `false`  
@@ -51,7 +51,7 @@ Provide a transform method on the data passed into the `file-on-write` stream. U
   
   
 ## Example
-Using `file-on-write` to write jpegs coming in from an [mjpeg-consumer](https://github.com/mmaelzer/mjpeg-consumer) stream:
+Using `file-on-write` to write jpegs coming from an [mjpeg-consumer](https://github.com/mmaelzer/mjpeg-consumer) stream:
 
 ```javascript
 var request = require("request");
