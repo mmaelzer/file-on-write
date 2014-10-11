@@ -1,8 +1,8 @@
 {
   "name": "file-on-write",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "a stream implementation that creates a file on every write",
-  "main": "./index.js",
+  "main": "./file-on-write.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +13,8 @@
     "file",
     "filewriter"
   ],
+  "homepage": "https://github.com/mmaelzer/file-on-write",
   "repository": "https://github.com/mmaelzer/file-on-write",
   "author": "Mike Maelzer <mmaelzer@gmail.com>",
-  "license": "BSD"
+  "license": "MIT"
 }

@@ -1,7 +1,18 @@
-var fs = require("fs");
-var path = require("path");
+var fs = require('fs');
+var path = require('path');
+var util = require('util');
+var Stream = require('stream');
 
-var FileOnWrite = function(options) {
+/**
+ *  @param {Object} options
+ *    @param {String=} options.path
+ *    @param {Function=} options.filename
+ *    @param {Function=} options.transform
+ *    @param {String=} options.ext
+ *    @param {Boolean=} options.sync
+ *    @param {Object=} options.context
+ */
+function FileOnWrite(options) {
   options = options || {};
   this.path = options.path || "./";
   this.filename = options.filename || Date.now;
@@ -12,21 +23,28 @@ var FileOnWrite = function(options) {
   this.context = options.context;
   
   if (!fs.existsSync(this.path)) fs.mkdirSync(this.path);
-};
+}
+util.inherits(FileOnWrite, Stream);
 
-require('util').inherits(FileOnWrite, require('stream'));
-
+/**
+ *  @param {*} data
+ */
 FileOnWrite.prototype.write = function(data) {
   var file = path.join(this.path, this.filename.call(this.context, data) + this.ext);
   var write = this.transform.call(this.context, data);
-  if (this.sync) {
     fs.writeFileSync(file, write);
   } else {
-    fs.writeFile(file, write, function(err) { if (err) throw new Error(err); }); 
+    fs.writeFile(file, write, function(err) { 
+      if (err) this.emit('error', err); 
+    }); 
   }
 };
 
-FileOnWrite.prototype.end = function(chunk) {
+/**
+ *  @param {*} data
+ */
+FileOnWrite.prototype.end = function(data) {
+  this.write(data);
   this.writable = false;
 };
 

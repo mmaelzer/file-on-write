@@ -1,1 +1,0 @@
-module.exports = require('./lib/file-on-write');
