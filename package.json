@@ -1,6 +1,6 @@
 {
   "name": "file-on-write",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a stream implementation that creates a file on every write",
   "main": "./file-on-write.js",
   "scripts": {
