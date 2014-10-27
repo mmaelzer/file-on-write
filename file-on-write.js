@@ -32,6 +32,7 @@ util.inherits(FileOnWrite, Stream);
 FileOnWrite.prototype.write = function(data) {
   var file = path.join(this.path, this.filename.call(this.context, data) + this.ext);
   var write = this.transform.call(this.context, data);
+  if (this.sync) {
     fs.writeFileSync(file, write);
   } else {
     fs.writeFile(file, write, function(err) { 
