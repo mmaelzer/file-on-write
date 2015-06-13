@@ -21,6 +21,7 @@ function FileOnWrite(options) {
   this.sync = options.sync;
   this.writable = true;
   this.context = options.context;
+  this.filter = options.filter || function() { return true; };
   
   if (!fs.existsSync(this.path)) fs.mkdirSync(this.path);
 }
@@ -30,12 +31,17 @@ util.inherits(FileOnWrite, Stream);
  *  @param {*} data
  */
 FileOnWrite.prototype.write = function(data) {
+  // Build full filepath
   var file = path.join(this.path, this.filename.call(this.context, data) + this.ext);
-  var write = this.transform.call(this.context, data);
+  // If the data doesn't pass the filter, return
+  if (!this.filter(data)) return;
+  // Transform the data before write
+  var transformedData = this.transform.call(this.context, data);
+  // Write data
   if (this.sync) {
-    fs.writeFileSync(file, write);
+    fs.writeFileSync(file, transformedData);
   } else {
-    fs.writeFile(file, write, function(err) { 
+    fs.writeFile(file, transformedData, function(err) { 
       if (err) this.emit('error', err); 
     }); 
   }
