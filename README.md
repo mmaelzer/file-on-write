@@ -53,7 +53,7 @@ The context to call `filename()` and `transform()` with.
 Provide a transform method on the data passed into the `file-on-write` stream. Useful when only wanting to save a subset of the provided data.
   
 ### filter {Function(data) Boolean}
-* default - return `true`
+* default - return `true`  
 Provide a filter method on the data passed into the `file-on-write` stream. Useful when you want to reject certain types of data. `filter` is called before `transform`. If you wish to keep the data return `true` from `filter` and `false` to discard the data.
   
 Example
