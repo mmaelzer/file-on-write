@@ -1,4 +1,4 @@
-var fs = require('fs');
+var fs = require('fs-extra');
 var path = require('path');
 var util = require('util');
 var Stream = require('stream');
@@ -23,7 +23,7 @@ function FileOnWrite(options) {
   this.context = options.context;
   this.filter = options.filter || function() { return true; };
   
-  if (!fs.existsSync(this.path)) fs.mkdirSync(this.path);
+  if (!fs.existsSync(this.path)) fs.mkdirsSync(this.path);
 }
 util.inherits(FileOnWrite, Stream);
 

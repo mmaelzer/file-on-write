@@ -16,5 +16,8 @@
   "homepage": "https://github.com/mmaelzer/file-on-write",
   "repository": "https://github.com/mmaelzer/file-on-write",
   "author": "Mike Maelzer <mmaelzer@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^0.26.0"
+  }
 }
