@@ -1,6 +1,6 @@
 {
   "name": "file-on-write",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "a stream implementation that creates a file on every write",
   "main": "./file-on-write.js",
   "scripts": {
@@ -16,5 +16,8 @@
   "homepage": "https://github.com/mmaelzer/file-on-write",
   "repository": "https://github.com/mmaelzer/file-on-write",
   "author": "Mike Maelzer <mmaelzer@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  }
 }
